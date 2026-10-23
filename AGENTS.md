@@ -11,3 +11,4 @@ This repo ships one agent skill. Only `skills/skill-evaluator/` is installed on 
 - When `skills/skill-evaluator/scripts/agents.json` gains or changes an agent, ask to run one single-turn case (`--case <id>`) and, when the entry has `continue` flags, one multi-turn case. When the runs pass, set `verified` to `<Agent> <version>, <YYYY-MM-DD>` and state the turn scope covered there or in `note`. When a run fails, leave `verified` as it is and report the failure.
 - Keep the skill agent-agnostic: reach other files by paths relative to the skill folder, and name agent-specific behaviour only as alternatives ("when your harness can spawn a subagent…").
 - All repo content is in English.
+- Write commit messages as Conventional Commits: on `main`, release-please derives the next semver version and `CHANGELOG.md` from them and keeps a release PR open. Merging that PR tags and publishes the release.
