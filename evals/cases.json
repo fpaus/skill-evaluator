@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "id": "audits-contradiction",
+      "prompt": "Audit AGENTS.md in this folder with prompt analyzers. Report the findings and apply none.",
+      "files": { "AGENTS.md": "# Rules\n\n- Always ask the user before you edit a file.\n- Never ask the user questions; act on your own.\n" },
+      "trials": 3,
+      "expect": {
+        "triggered": true,
+        "text": "Never ask the user questions",
+        "files": { "AGENTS.md": { "contains": "Never ask the user questions" } },
+        "judge": "The answer reports, as a finding, the conflict between 'Always ask the user before you edit a file' and 'Never ask the user questions'."
+      }
+    },
+    {
+      "id": "applies-on-request",
+      "prompt": "Audit AGENTS.md in this folder with prompt analyzers. Report the findings and wait for my choice.",
+      "turns": ["Apply all findings."],
+      "files": { "AGENTS.md": "# Rules\n\n- Always ask the user before you edit a file.\n- Never ask the user questions; act on your own.\n" },
+      "trials": 3,
+      "expect": {
+        "triggered": true,
+        "files": { "AGENTS.md": { "exists": true, "notContains": "Never ask the user questions; act on your own" } }
+      }
+    },
+    {
+      "id": "ignores-unrelated",
+      "prompt": "What is 17 + 25? Reply with the number only.",
+      "trials": 3,
+      "expect": { "triggered": false, "text": "42" }
+    }
+  ]
+}

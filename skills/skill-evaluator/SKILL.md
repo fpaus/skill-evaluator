@@ -7,7 +7,7 @@ description: Evaluate, improve or create an agent document (SKILL.md, AGENTS.md,
 
 Write or rewrite an agent document with `writing-for-agents`, run the **analyzers** on it, report the **findings**, and fix the accepted ones. The loop holds at most two rewrites.
 
-The analyzer prompt lives in [`ANALYZERS.md`](ANALYZERS.md), beside this file.
+The analyzer prompt lives in [`ANALYZERS.md`](ANALYZERS.md), beside this file. When the user asks to test how a skill behaves when it runs, or to run its evals, follow [`EVALS.md`](EVALS.md) instead of the steps below.
 
 ## Steps
 
