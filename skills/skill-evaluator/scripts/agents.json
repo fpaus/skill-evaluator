@@ -1,0 +1,29 @@
+{
+  "claude": {
+    "verified": "Claude Code 2.1.309, 2026-10-23",
+    "note": "Single-turn cases verified; `continue` (multi-turn) not yet run on a real session.",
+    "run": ["claude", "-p", "--output-format", "stream-json", "--verbose", "--permission-mode", "acceptEdits"],
+    "continue": ["-c"],
+    "model": ["--model", "{model}"],
+    "prompt": "stdin",
+    "triggered": "\"name\":\"Skill\",\"input\":\\{\"skill\":\"{skill}\"",
+    "final": { "match": { "type": "result" }, "path": "result" }
+  },
+  "opencode": {
+    "verified": "opencode 2.0.32, 2026-10-23, single- and multi-turn",
+    "run": ["opencode", "run", "--format", "json"],
+    "continue": ["-c"],
+    "model": ["-m", "{model}"],
+    "prompt": "stdin",
+    "triggered": "\"tool\":\"skill\",\"state\":\\{[^\\n]*?\"input\":\\{\"id\":\"{skill}\"",
+    "final": { "match": { "type": "text" }, "path": "part.text" }
+  },
+  "agy": {
+    "verified": false,
+    "note": "Antigravity CLI. Flags from `agy --help` 1.4.4; output shape not yet observed, so trigger detection and final-text extraction are off.",
+    "run": ["agy", "-p", "--output-format", "text", "--mode", "accept-edits"],
+    "continue": ["-c"],
+    "model": ["--model", "{model}"],
+    "prompt": "arg"
+  }
+}

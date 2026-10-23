@@ -6,7 +6,7 @@ It runs inside the agent you already use (Claude Code, opencode, Antigravity, Co
 
 ## Install
 
-Requires Node.js 20 or later.
+Requires Node.js 22.20 or later (the `skills` CLI needs it; the bundled scripts run on Node 20+).
 
 ```sh
 npx skills@1.7.4 add mattpocock/skills -s writing-for-agents -g
@@ -22,6 +22,12 @@ Ask your agent, for example:
 - "Create a skill that drafts release notes, and check it."
 
 The skill reports findings in a table and asks which to apply before it edits anything.
+
+## Evals
+
+Ask your agent to "run the evals of `<skill>`". The runner (`scripts/run-evals.mjs`) runs each case through **your own agent's headless CLI**, so a skill is tested where it will run. Agents are plain data in `scripts/agents.json`; verified: Claude Code, opencode. Antigravity (`agy`) is listed but unverified. Case format and how to add an agent: [`EVALS.md`](skills/skill-evaluator/EVALS.md).
+
+Every trial is a full agent run billed to your account.
 
 ## What it checks
 
