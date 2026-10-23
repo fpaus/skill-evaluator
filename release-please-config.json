@@ -4,7 +4,8 @@
     ".": {
       "release-type": "simple",
       "package-name": "skill-evaluator",
-      "initial-version": "1.0.0"
+      "initial-version": "1.0.0",
+      "include-component-in-tag": false
     }
   }
 }
