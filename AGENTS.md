@@ -11,3 +11,4 @@ This repo ships one agent skill. Only `skills/skill-evaluator/` is installed on 
 - When `agents.json` gains or changes an agent, run one real case on it and update its `verified` field.
 - Keep the skill agent-agnostic: reach other files by paths relative to the skill folder, and name agent-specific behaviour only as alternatives ("when your harness can spawn a subagent…").
 - All repo content is in English.
+- Write commit messages as Conventional Commits: on `main`, release-please derives the next semver version and `CHANGELOG.md` from them and keeps a release PR open. Merging that PR tags and publishes the release.
